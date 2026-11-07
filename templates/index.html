@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sprout | Your Little Habit Garden</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌱 <h2>sprout</h2>
+        </div>
+
+        <p class="menu-title">MENU</p>
+
+        <nav>
+            <button class="nav-item active" data-page="dashboard">🏡 Dashboard</button>
+            <button class="nav-item" data-page="garden">🌿 My Garden</button>
+            <button class="nav-item" data-page="habits">📋 My Habits</button>
+            <button class="nav-item" data-page="achievements">🏆 Achievements</button>
+            <button class="nav-item" data-page="statistics">📊 Statistics</button>
+        </nav>
+
+        <div class="seed-card">
+            🌰
+            <div>
+                <h4 id="seed-count">0 Seeds</h4>
+                <p>Keep growing!</p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <p class="date" id="current-date"></p>
+                <h1>Good morning, Gardener! 🌷</h1>
+                <p class="subtitle">Little steps make a beautiful garden.</p>
+            </div>
+
+            <div class="profile">🌸</div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="page active">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    🌱
+                    <p>Habits completed</p>
+                    <h2 id="completed-count">0 / 0</h2>
+                </div>
+
+                <div class="stat-card">
+                    🔥
+                    <p>Current streak</p>
+                    <h2 id="streak-count">0 days</h2>
+                </div>
+
+                <div class="stat-card">
+                    🌰
+                    <p>Seeds collected</p>
+                    <h2 id="total-seeds">0</h2>
+                </div>
+
+            </div>
+
+
+            <section class="content-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>My Little Garden 🌻</h2>
+                        <p>Look how far you've grown!</p>
+                    </div>
+
+                    <span class="badge">YOUR HAPPY PLACE</span>
+                </div>
+
+                <div class="garden">
+
+                    <div class="sun">☀️</div>
+
+                    <div class="garden-plants" id="garden-plants"></div>
+
+                    <div class="ground"></div>
+
+                </div>
+
+            </section>
+
+
+            <section class="content-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Today's Habits 🍃</h2>
+                        <p>Every little effort counts.</p>
+                    </div>
+
+                    <span class="badge" id="progress-text">0% completed</span>
+                </div>
+
+                <div class="habit-list" id="dashboard-habits"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- GARDEN PAGE -->
+
+        <section id="garden" class="page">
+
+            <section class="content-card">
+
+                <h2>My Garden 🌷</h2>
+                <p class="subtitle">Your collection of beautiful plants.</p>
+
+                <div class="plant-grid" id="my-plants"></div>
+
+            </section>
+
+            <section class="content-card">
+
+                <h2>Plant Shop 🪴</h2>
+                <p class="subtitle">Spend your seeds to grow your collection.</p>
+
+                <div class="plant-grid" id="plant-shop"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- HABITS PAGE -->
+
+        <section id="habits" class="page">
+
+            <section class="content-card">
+
+                <h2>Manage Your Habits 🍃</h2>
+                <p class="subtitle">Create your own little goals.</p>
+
+                <form id="habit-form">
+
+                    <input type="text" id="habit-name"
+                        placeholder="Habit name" maxlength="40" required>
+
+                    <input type="text" id="habit-description"
+                        placeholder="Description (optional)" maxlength="100">
+
+                    <button type="submit" class="primary-btn">+ Add Habit</button>
+
+                </form>
+
+                <div class="habit-list" id="all-habits"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- ACHIEVEMENTS PAGE -->
+
+        <section id="achievements" class="page">
+
+            <section class="content-card">
+
+                <h2>Your Achievements 🏆</h2>
+                <p class="subtitle">Every milestone deserves a celebration.</p>
+
+                <div class="achievement-grid" id="achievement-list"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- STATISTICS PAGE -->
+
+        <section id="statistics" class="page">
+
+            <section class="content-card">
+
+                <h2>Your Weekly Progress 📊</h2>
+                <p class="subtitle">See how consistently you've been growing.</p>
+
+                <div class="chart" id="weekly-chart"></div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
